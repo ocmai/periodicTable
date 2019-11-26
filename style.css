@@ -1,0 +1,154 @@
+body{
+  display: block;
+}
+
+.contents{
+  width: 100%
+  margin: 10px auto;
+}
+
+.periodicTable{
+  width: 100%;
+  margin: 10px auto;
+}
+
+.elements{
+  border: solid 1px #606060;
+  border-radius: 8px;
+  padding:0.5em 1em;
+  color: #000;
+  background: #FFF;
+  width: 30px;
+  height: 60px;
+  margin: 1px;
+}
+.elements p{
+  margin: 1px;
+  padding: 0.5em;
+}
+.empty{
+  color: #fff;
+  background:#fff;
+  border: solid 1px #fff;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  width: 30px;
+  height: 60px;
+  margin:1px;
+}
+.empty p{
+  margin: 1px;
+  padding:0.5em;
+}
+
+.btn{
+  color: #fff;
+  background:#000;
+  border: solid 1px #fff;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  width: 30px;
+  height: 60px;
+  margin:1px;
+}
+.btn p{
+  padding:0.5px;
+  text-align: center;
+  font-size: 7pt;
+}
+.btn:hover{
+  background: #fff;
+  color: #000;
+  border: solid 1px #000;
+}
+
+.roullete{
+  color:#fff;
+  background: #000;
+  border:solid 1px #fff;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  width: 161px;
+  height: 60px;
+  margin: 1px;
+  text-align: center;
+  font-size: 12pt;
+}
+
+
+
+/*1行目*/
+.row1 {
+  position:absolute;
+}
+.row1 .elements{
+  float:left;
+}
+.row1 .empty{
+  float:left;
+}
+.row1 .btn{
+  float:left;
+}
+.row1 .roullete{
+  float: left;
+}
+
+/*2行目*/
+.row2 {
+  position:absolute;
+  top:172px;
+}
+.row2 .elements{
+  float:left;
+}
+.row2 .empty{
+  float:left;
+}
+
+/*3行目*/
+.row3 {
+  position:absolute;
+  top:254px;
+}
+.row3 .elements{
+  float:left;
+}
+.row3 .empty{
+  float:left;
+}
+
+/*4行目*/
+.row4{
+  position: absolute;
+  top:336px;
+}
+.row4 .elements{
+  float:left;
+}
+/*5行目*/
+.row5{
+  position: absolute;
+  top:418px;
+}
+.row5 .elements{
+  float:left;
+}
+
+/*6行目*/
+.row6{
+  position: absolute;
+  top:500px;
+}
+.row6 .elements{
+  float:left;
+}
+
+/*7行目*/
+.row7{
+  position: absolute;
+  top:582px;
+}
+.row7 .elements{
+  float:left;
+}
