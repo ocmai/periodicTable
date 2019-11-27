@@ -3,7 +3,3 @@
 $(document).ready(function(){
 
 });
-
-$('btn').on('click',function(){
-  $('.odmeter').html(123);
-})
