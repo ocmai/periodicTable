@@ -1,7 +1,8 @@
+
+
 $(document).ready(function(){
     console.log('test');
-});
 
-$(document).on('click',function(){
-    console.log('btntest');
-  });
+    $('.btn').click(function() {console.log('test')});
+
+});

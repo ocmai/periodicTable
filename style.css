@@ -1,5 +1,5 @@
-body{
-  display: block;
+.style{
+  margin-left: 100px;
 }
 
 .contents{
@@ -21,10 +21,10 @@ body{
   width: 30px;
   height: 60px;
   margin: 1px;
+  text-align: center;
 }
 .elements p{
   margin: 1px;
-  padding: 0.5em;
 }
 .empty{
   color: #fff;
@@ -38,7 +38,6 @@ body{
 }
 .empty p{
   margin: 1px;
-  padding:0.5em;
 }
 
 .btn{
@@ -83,6 +82,7 @@ body{
 }
 .row1 .elements{
   float:left;
+  text-align: center;
 }
 .row1 .empty{
   float:left;
@@ -143,6 +143,9 @@ body{
 .row6 .elements{
   float:left;
 }
+#Lantanoid{
+  font-size: 10pt;
+}
 
 /*7行目*/
 .row7{
@@ -151,6 +154,9 @@ body{
 }
 .row7 .elements{
   float:left;
+}
+#Actinoid{
+  font-size: 10pt;
 }
 
 /*8行目*/
