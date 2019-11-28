@@ -42,32 +42,31 @@
 
 .btn{
   color: #fff;
-  background:#000;
+  background:#6c3524;
   border: solid 1px #fff;
   border-radius: 8px;
   padding: 0.5em 1em;
   width: 30px;
   height: 60px;
   margin:1px;
+  align: center;
 }
 .btn p{
-  padding:0.5px;
-  text-align: center;
-  font-size: 7pt;
+  font-size: 9pt;
 }
 .btn:hover{
   background: #fff;
-  color: #000;
-  border: solid 1px #000;
+  color: #6c3524;
+  border: solid 1px #6c3524;
 }
 
-.roullete{
-  color:#fff;
-  background: #000;
-  border:solid 1px #fff;
+.hint_box{
+  color:#000;
+  background: #fff;
+  border:solid 1px #000;
   border-radius: 8px;
   padding: 0.5em 1em;
-  width: 161px;
+  width: 426px;
   height: 60px;
   margin: 1px;
   text-align: center;
@@ -90,7 +89,7 @@
 .row1 .btn{
   float:left;
 }
-.row1 .roullete{
+.row1 .hint_box{
   float: left;
 }
 
@@ -105,6 +104,9 @@
 .row2 .empty{
   float:left;
 }
+.row2 .hint_box{
+  float:left;
+}
 
 /*3行目*/
 .row3 {
@@ -115,6 +117,9 @@
   float:left;
 }
 .row3 .empty{
+  float:left;
+}
+.row3 .hint_box{
   float:left;
 }
 
