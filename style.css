@@ -44,6 +44,8 @@
   border-radius: 8px;
   background-color: #ffffcc;
   margin: 30px;
+  font-family: sans-serif;
+  font-size: 12pt;
 }
 
 .modal_close{
