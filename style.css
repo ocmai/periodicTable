@@ -189,9 +189,6 @@
 .custom-option.selection {
   background: #f9f9f9;
 }
-
-
-
 .overlay {
     position: fixed;
     top: 0;
@@ -274,9 +271,9 @@
 }
 
 .score_box{
-  color: #000;
-  background: #fff;
-  border: solid 1px #000;
+  color: #fff;
+  background: #404040;
+  border: solid 1px #404040;
   border-radius: 8px;
   padding:  0.5em 1px;
   width:125px;
@@ -287,10 +284,12 @@
 }
 .point{
   text-align: right;
-  margin-top: 40px;
+  margin-top: 0;
   margin-right: 3px;
 }
-
+.score{
+  margin-bottom: 0;
+}
 
 /*1行目*/
 .row1 {
@@ -380,7 +379,7 @@
 .row7 .elements{
   float:left;
 }
-#Actinoid{
+#Actinoid {
   font-size: 10pt;
 }
 

@@ -60,7 +60,7 @@ $(document).ready(function(){
   //モーダル表示
   $('.modal').fadeIn();
 
-  //
+  //セレクトボックス
   $(".custom-select").each(function() {
   var classes = $(this).attr("class"),
       id      = $(this).attr("id"),
@@ -76,48 +76,51 @@ $(document).ready(function(){
   $(this).wrap('<div class="custom-select-wrapper"></div>');
   $(this).hide();
   $(this).after(template);
-});
-$(".custom-option:first-of-type").hover(function() {
-  $(this).parents(".custom-options").addClass("option-hover");
-}, function() {
-  $(this).parents(".custom-options").removeClass("option-hover");
-});
-$(".custom-select-trigger").on("click", function() {
-  $('html').one('click',function() {
-    $(".custom-select").removeClass("opened");
   });
-  $(this).parents(".custom-select").toggleClass("opened");
-  event.stopPropagation();
-});
-$(".custom-option").on("click", function() {
-  $(this).parents(".custom-select-wrapper").find("select").val($(this).data("value"));
-  $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
-  $(this).addClass("selection");
-  $(this).parents(".custom-select").removeClass("opened");
-  $(this).parents(".custom-select").find(".custom-select-trigger").text($(this).text());
-});
-
-
+  $(".custom-option:first-of-type").hover(function() {
+    $(this).parents(".custom-options").addClass("option-hover");
+  }, function() {
+    $(this).parents(".custom-options").removeClass("option-hover");
+    });
+    $(".custom-select-trigger").on("click", function() {
+        $('html').one('click',function() {
+          $(".custom-select").removeClass("opened");
+        });
+        $(this).parents(".custom-select").toggleClass("opened");
+        event.stopPropagation();
+      });
+    $(".custom-option").on("click", function() {
+      $(this).parents(".custom-select-wrapper").find("select").val($(this).data("value"));
+      $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
+      $(this).addClass("selection");
+      $(this).parents(".custom-select").removeClass("opened");
+      $(this).parents(".custom-select").find(".custom-select-trigger").text($(this).text());
+    });
 
   //モーダル上のSTARTボタン押下
   $('.modal_close').click(function(){
     $('.modal').fadeOut();
     $('.overlay').fadeOut();
+
+    var difficulty = $('[name=difficulty]').val();
+    var number = $('[name=number]').val();
+
+    //設定値
+    var range = 0;
+    if(difficulty == "Beginner"){
+      range = 21;
+    }else if(difficulty == "Intermediate") {
+      range = 41;
+    }else if(difficulty == "Advanced" || difficulty == "Maniac") {
+      range = 119;
+    }
+  }); //モーダル上のSTARTボタン押下内処理ここまで
+  
+  $('.btn').click(function() {
+
+    var random = Math.floor(Math.random() * range );
+    console.log(random)
   });
 
 
-
-
-
-
-
-
-
-});
-
-
-$('.btn').click(function() {
-
-  var random = Math.floor(Math.random() * 119);
-  console.log(random)
-});
+}); //document.ready内
