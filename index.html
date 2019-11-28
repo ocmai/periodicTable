@@ -178,14 +178,40 @@
         <div class="elements"><p id="102">No</p></div>
         <div class="elements"><p id="103">Lr</p></div>
       </div>
-    </div>  <!--id=periodicTable-->
+    </div><!--id=periodicTable-->
   </div>
     <!--モーダル-->
     <div class="modal">
-      <p>周期表をつかったげーむだよ</p>
+      <p class="modal_title">PeriodicTable Game</p>
+        <div class="modal_text">
+          <p style="margin-left:10px;">遊び方</p>
+          <p>ヒントが3つ，少しずつ出てくるよ。ヒントをみてわかったら答えになる元素をクリックしよう。ヒントが少ないうちに正解すると，得点が多くもらえるぞ！</p>
+          <p>周期表博士を目指してがんばろう！<p/>
+          <p>初級：1〜20番，中級：1〜40番，上級は118番まですべての元素から出題。
+            超級は周期表に元素記号が入っていない状態で出題される変態向け！</p>
+        </div>
+      <div class="center">
+        <select name="sources" id="sources" class="custom-select sources" placeholder="難易度">
+          <option value="Beginner">初級</option>
+          <option value="Intermediate">中級</option>
+          <option value="Advanced">上級</option>
+          <option value="Maniac">超級</option>
+        </select>
+      </div>
+      <div class="number">
+        <select name="sources" id="sources" class="custom-select sources" placeholder="問題数">
+          <option value="10">10問</option>
+          <option value="20">20問</option>
+          <option value="40">40問</option>
+          <option value="118">118問</option>
+        </select>
+      </div>
       <div class="modal_close">START</div>
     </div>
     <div class="overlay"></div>
+
+
+
     <script src="index.js"></script>
   </body>
 
