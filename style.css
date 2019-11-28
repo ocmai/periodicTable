@@ -2,6 +2,28 @@
   margin-left: 100px;
 }
 
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 600px;
+    border-radius: 8px;
+    background-color: #ffff8e;
+    padding:  15px;
+    display: none;
+    z-index: 2;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255, 224, 0.8);
+    z-index: 1;
+}
 .contents{
   width: 100%
   margin: 10px auto;
@@ -73,6 +95,23 @@
   font-size: 12pt;
 }
 
+.score_box{
+  color: #000;
+  background: #fff;
+  border: solid 1px #000;
+  border-radius: 8px;
+  padding:  0.5em 1px;
+  width:125px;
+  height: 60px;
+  margin: 1px;
+  text-align: center;
+  font-size: 12pt;
+}
+.point{
+  text-align: right;
+  margin-top: 40px;
+  margin-right: 3px;
+}
 
 
 /*1行目*/
@@ -90,6 +129,9 @@
   float:left;
 }
 .row1 .hint_box{
+  float: left;
+}
+.row1 .score_box{
   float: left;
 }
 
