@@ -152,11 +152,11 @@ $(document).ready(function(){
   //設定値
   var range = 0;
   if(difficulty == "Beginner"){
-    range = 21;
+    range = 20;
   }else if(difficulty == "Intermediate") {
-    range = 41;
+    range = 40;
   }else if(difficulty == "Advanced" || difficulty == "Maniac") {
-    range = 119;
+    range = 118;
   }
 
 //重複のない乱数を生成
@@ -196,12 +196,22 @@ $(document).ready(function(){
     }
   }
 
-
-
+  var number_count = 0;
 //ゲームのSTARTボタン押下時処理
-  $('.btn').click(function() {
+  $('.btn').on('click',function() {
+    //経過秒数表示
 
-    dispSec();
+    //ランダムに出題する
+    var id = randoms[number_count]
+    if(number_count == number){
+      console.log('終了');
+    }else if (number_count <= number) {
+      number_count = number_count +1;
+      $('.number_now').text(number_count);
+      console.log(id)
+      console.log(data[id].name)
+      $('.hint1').text(data[id].hint1);
+    }
   });
 
 
