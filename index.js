@@ -139,77 +139,91 @@ $(document).ready(function(){
       $(this).parents(".custom-select").find(".custom-select-trigger").text($(this).text());
     });
 
+
+  //モーダルで設定した難易度・問題数情報
+    var difficulty
+    var number
   //モーダル上のSTARTボタン押下
   $('.modal_close').click(function(){
     $('.modal').fadeOut();
     $('.overlay').fadeOut();
+    number = $('[name=number]').val();
+    difficulty = $('[name=difficulty]').val();
+    //設定値
+    var range = 0;
+    if(difficulty == "Beginner"){
+      range = 20;
+    }else if(difficulty == "Intermediate") {
+      range = 40;
+    }else if(difficulty == "Advanced" || difficulty == "Maniac") {
+      range = 118;
+    }
+    //重複のない乱数を生成
+      randoms = [];
+      var min = 1;
+      var max = range;
+
+      for(i = min; i <= max; i++){
+        while(true){
+          var tmp = intRandom(min, max);
+          if(!randoms.includes(tmp)){
+            randoms.push(tmp);
+            break;
+          }
+        }
+      }
   }); //モーダル上のSTARTボタン押下内処理ここまで
 
-//モーダルで設定した難易度・問題数情報
-  var difficulty = $('[name=difficulty]').val();
-  var number = $('[name=number]').val();
-
-  //設定値
-  var range = 0;
-  if(difficulty == "Beginner"){
-    range = 20;
-  }else if(difficulty == "Intermediate") {
-    range = 40;
-  }else if(difficulty == "Advanced" || difficulty == "Maniac") {
-    range = 118;
-  }
-
-//重複のない乱数を生成
-  var randoms = [];
-  var min = 1;
-  var max = range;
-
-  for(i = min; i <= max; i++){
-    while(true){
-      var tmp = intRandom(min, max);
-      if(!randoms.includes(tmp)){
-        randoms.push(tmp);
-        break;
-      }
-    }
-  }
   function intRandom(min, max){
     return Math.floor( Math.random() * (max - min + 1)) + min;
   }
 
 
 //時間経過処理
-  var start = new Date();
-  var sec = 0;
+  var start;
+  var sec;
   var datet = 0;
-  var counter = 10;
+  var counter = 60;
+
 
   function dispSec(){
     now = new Date();
     datet = parseInt((now.getTime() - start.getTime()) / 1000);
     sec = datet % 60;
-    if(sec == counter){
+    if(sec > counter){
       //stop処理
+      clearInterval(interval_id);
     }else{
       $('.time').text(sec);
-      setInterval(dispSec(),1000);
+      //ヒントの追加表示
+      if(sec == 10){
+        $('.hint2').text(data[id].hint2)
+      }else if (sec == 20) {
+        $('.hint3').text(data[id].hint3)
+      }
     }
   }
 
+  var interval_id
   var number_count = 0;
+  var randoms
+  var id;
 //ゲームのSTARTボタン押下時処理
   $('.btn').on('click',function() {
+
     //経過秒数表示
+    start = new Date();
+    interval_id = setInterval(dispSec,1000);
 
     //ランダムに出題する
-    var id = randoms[number_count]
+    id = randoms[number_count]
     if(number_count == number){
+      //出題終了
       console.log('終了');
     }else if (number_count <= number) {
+      //出題処理
       number_count = number_count +1;
       $('.number_now').text(number_count);
-      console.log(id)
-      console.log(data[id].name)
       $('.hint1').text(data[id].hint1);
     }
   });
