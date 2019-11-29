@@ -143,25 +143,65 @@ $(document).ready(function(){
   $('.modal_close').click(function(){
     $('.modal').fadeOut();
     $('.overlay').fadeOut();
-
-    var difficulty = $('[name=difficulty]').val();
-    var number = $('[name=number]').val();
-
-    //設定値
-    var range = 0;
-    if(difficulty == "Beginner"){
-      range = 21;
-    }else if(difficulty == "Intermediate") {
-      range = 41;
-    }else if(difficulty == "Advanced" || difficulty == "Maniac") {
-      range = 119;
-    }
   }); //モーダル上のSTARTボタン押下内処理ここまで
 
+//モーダルで設定した難易度・問題数情報
+  var difficulty = $('[name=difficulty]').val();
+  var number = $('[name=number]').val();
+
+  //設定値
+  var range = 0;
+  if(difficulty == "Beginner"){
+    range = 21;
+  }else if(difficulty == "Intermediate") {
+    range = 41;
+  }else if(difficulty == "Advanced" || difficulty == "Maniac") {
+    range = 119;
+  }
+
+//重複のない乱数を生成
+  var randoms = [];
+  var min = 1;
+  var max = range;
+
+  for(i = min; i <= max; i++){
+    while(true){
+      var tmp = intRandom(min, max);
+      if(!randoms.includes(tmp)){
+        randoms.push(tmp);
+        break;
+      }
+    }
+  }
+  function intRandom(min, max){
+    return Math.floor( Math.random() * (max - min + 1)) + min;
+  }
+
+
+//時間経過処理
+  var start = new Date();
+  var sec = 0;
+  var datet = 0;
+  var counter = 10;
+
+  function dispSec(){
+    now = new Date();
+    datet = parseInt((now.getTime() - start.getTime()) / 1000);
+    sec = datet % 60;
+    if(sec == counter){
+      //stop処理
+    }else{
+      $('.time').text(sec);
+      setInterval(dispSec(),1000);
+    }
+  }
+
+
+
+//ゲームのSTARTボタン押下時処理
   $('.btn').click(function() {
 
-    var random = Math.floor(Math.random() * range );
-    console.log(random)
+    dispSec();
   });
 
 

@@ -75,14 +75,14 @@
 .center {
    position: absolute;
    display: inline-block;
-   top: 60%;
+   top: 63%;
    left:300px;
    transform: translate(-50%, -50%);
  }
  .number{
    position: absolute;
    display: inline-block;
-   top: 60%;
+   top: 63%;
    left:500px;
    transform: translate(-50%,-50%);
  }
@@ -292,6 +292,48 @@
 .score{
   margin-bottom: 0;
 }
+.time_count{
+  color: #fff;
+  background:#404040;
+  border: solid 1px #fff;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  width: 30px;
+  height: 60px;
+  margin:1px;
+  align: center;
+}
+.time{
+  margin-bottom: 0;
+  text-align: center;
+}
+.time_text{
+  text-align: right;
+  margin-top: 0;
+  margin-right: -10px;
+  font-size: 10pt;
+}
+.number_count{
+  color: #000;
+  background-color: #fff;
+  border: solid 1px #404040;
+  border-radius: 8px;
+  padding:  0.5em 1em;
+  width: 30px;
+  height: 60px;
+  margin: 1px;
+  align: center;
+}
+.count{
+  text-align: right;
+  margin-top: 0;
+  margin-right: -10px;
+  font-size: 10pt;
+}
+.number_now{
+  margin-bottom: 0;
+  text-align: center;
+}
 
 /*1行目*/
 .row1 {
@@ -313,6 +355,9 @@
 .row1 .score_box{
   float: left;
 }
+.row1 .number_count{
+  float: left;
+}
 
 /*2行目*/
 .row2 {
@@ -326,6 +371,9 @@
   float:left;
 }
 .row2 .hint_box{
+  float:left;
+}
+.row2 .time_count{
   float:left;
 }
 
