@@ -215,6 +215,11 @@ $(document).ready(function(){
     start = new Date();
     interval_id = setInterval(dispSec,1000);
 
+    //前に表示されていたヒントを消す
+    $('.hint1').text('');
+    $('.hint2').text('');
+    $('.hint3').text('');
+
     //ランダムに出題する
     id = randoms[number_count]
     if(number_count == number){
