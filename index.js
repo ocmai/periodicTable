@@ -183,16 +183,17 @@ $(document).ready(function(){
   var start;
   var sec;
   var datet = 0;
-  var counter = 60;
+  var counter = 20;
 
 
   function dispSec(){
     now = new Date();
     datet = parseInt((now.getTime() - start.getTime()) / 1000);
-    sec = datet % 60;
-    if(sec > counter){
-      //stop処理
-      clearInterval(interval_id);
+    sec = datet % 61;
+    if(sec >= counter){
+      //ストップ処理
+      clearInterval(interval_array[0]);
+      interval_id = 0;
     }else{
       $('.time').text(sec);
       //ヒントの追加表示
@@ -205,6 +206,7 @@ $(document).ready(function(){
   }
 
   var interval_id
+  var interval_array = [];
   var number_count = 0;
   var randoms
   var id;
@@ -214,6 +216,11 @@ $(document).ready(function(){
     //経過秒数表示
     start = new Date();
     interval_id = setInterval(dispSec,1000);
+    //id初期化
+    interval_array = [];
+    interval_array.push(interval_id);
+    console.log('array:' +interval_array);
+    console.log('id:'+interval_id)
 
     //前に表示されていたヒントを消す
     $('.hint1').text('');
@@ -233,5 +240,38 @@ $(document).ready(function(){
     }
   });
 
+//元素クリック時処理
+  $("[id^='no']").parent().on('click',function(){
+    var element_name = $(this).text();
+    if(element_name==data[id].symbol){
+      //背景色変更
+      $(this).css('background-color','#a3d6cc');
+      //経過時間カウントを止める
+      clearInterval(interval_array[0]);
+      interval_id = 0;
+      //得点を計算して表示
+      var scorePoint = $('.score').text();
+      console.log(scorePoint)
+        if($('.hint3').text() != ""){
+          //hint3まで表示されてる場合:+3pt
+          scorePoint = Number(scorePoint)+ 3;
+          $('.score').text(scorePoint);
+          console.log(3)
+        }else if ($('.hint2').text() != "") {
+          //hint2まで表示されてる場合:+5pt
+          scorePoint = Number(scorePoint) + 5;
+          //$('.score').text(scorePoint);
+          console.log(5)
+        }else{
+          //hint1まで表示されてる場合:+10pt
+          scorePoint = Number(scorePoint) + 10;
+          $('.score').text(scorePoint);
+        }
+    }else{
+      //間違ったところをクリックすると-1pt.
+      scorePoint = Number(scorePoint) -1;
+      console.log(scorePoint);
+    }
+  }); //元素クリック時処理
 
 }); //document.ready内
