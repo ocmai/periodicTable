@@ -158,7 +158,7 @@ var data=[
     'hint1':'フランスの化学者ラヴァジェが，未知の元素の酸化物であるとして周期表に加えていた。1808年にデービーが分離に成功した。',
     'hint2':'地殻中で，鉄に次いで5番目に多い元素。化合物である生石灰は乾燥剤として用いられる。',
     'hint3':'動物の体内ではハイドロキシアパタイトとして存在し，骨や歯の成分となっている。'
-  }
+  },
   {
     'id':21,
     'name':'スカンジウム',
@@ -727,6 +727,222 @@ var data=[
     'hint2':'',
     'hint3':''
   },
+  {
+    'id':92,
+    'name':'ウラン',
+    'symbol':'U',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':93,
+    'name':'ネプツニウム',
+    'symbol':'Np',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':94,
+    'name':'プルトニウム',
+    'symbol':'Pu',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':95,
+    'name':'アメリシウム',
+    'symbol':'Am',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':96,
+    'name':'キュリウム',
+    'symbol':'Cm',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':97,
+    'name':'バークリウム',
+    'symbol':'Bk',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':98,
+    'name':'カリホルニウム',
+    'symbol':'Cf',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':99,
+    'name':'アインスタイニウム',
+    'symbol':'Es',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':100,
+    'name':'フェルミウム',
+    'symbol':'Fm',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':101,
+    'name':'メンデレビウム',
+    'symbol':'Md',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':102,
+    'name':'ノーベリウム',
+    'symbol':'No',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':103,
+    'name':'ローレンシウム',
+    'symbol':'Lr',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':104,
+    'name':'ラザホージウム',
+    'symbol':'Rf',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':105,
+    'name':'ドブニウム',
+    'symbol':'Db',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':106,
+    'name':'シーボーギウム',
+    'symbol':'Sg',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':107,
+    'name':'ボーリウム',
+    'symbol':'Bh',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':108,
+    'name':'ハッシウム',
+    'symbol':'Hs',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':109,
+    'name':'マイトネリウム',
+    'symbol':'Mt',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':110,
+    'name':'ダームスタチウム',
+    'symbol':'Ds',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':111,
+    'name':'レントゲニウム',
+    'symbol':'Rg',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':112,
+    'name':'コペルニシウム',
+    'symbol':'Cn',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':113,
+    'name':'ニホニウム',
+    'symbol':'Nh',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':114,
+    'name':'フレロビウム',
+    'symbol':'Fl',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':115,
+    'name':'モスコビウム',
+    'symbol':'Mc',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':116,
+    'name':'リバモリウム',
+    'symbol':'Lv',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':117,
+    'name':'テネシン',
+    'symbol':'Ts',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
+  {
+    'id':118,
+    'name':'オガネソン',
+    'symbol':'Og',
+    'hint1':'',
+    'hint2':'',
+    'hint3':''
+  },
 
 ]
 
@@ -782,6 +998,7 @@ $(document).ready(function(){
   $('.modal_close').click(function(){
     $('.modal').fadeOut();
     $('.overlay').fadeOut();
+    $('.name').hide();
     number = $('[name=number]').val();
     difficulty = $('[name=difficulty]').val();
 
@@ -912,16 +1129,17 @@ $(document).ready(function(){
 
 //元素クリック時処理
   $("[id^='no']").parent().on('click',function(){
-    var element_name = $(this).text();
-
-    if(element_name== elementsData[0].symbol){
+    var element_name = $(this).children('.name').text();
+    console.log(element_name)
+    if(element_name== elementsData[0].name){
       //背景色変更
       $(this).css('background-color','#a3d6cc');
+      //元素名表示
+      $(this).children('.name').show();
       //経過時間カウントを止める
       clearInterval(interval_array[0]);
       interval_id = 0
       //得点を計算して表示
-
         if($('.hint3').text() != ""){
           //hint3まで表示されてる場合:+3pt
           scorePoint = Number(scorePoint)+ 3;
