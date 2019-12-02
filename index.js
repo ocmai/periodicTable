@@ -215,12 +215,29 @@ $(document).ready(function(){
     $('.overlay').fadeOut();
     number = $('[name=number]').val();
     difficulty = $('[name=difficulty]').val();
+
     //設定値
     var range = 0;
     if(difficulty == "Beginner"){
       range = 20;
+      for(var i=21; i<=118; i++){
+        $('#no'+i).hide();
+        $('#no'+i).parent().css('border-color','#ffffff');
+        $('#Lantanoid').hide();
+        $('#Lantanoid').parent().css('border-color','#ffffff');
+        $('#Actinoid').hide();
+        $('#Actinoid').parent().css('border-color','#ffffff');
+      }
     }else if(difficulty == "Intermediate") {
       range = 40;
+      for(var i =41; i<=118; i++){
+        $('#no'+i).hide();
+        $('#no'+i).parent().css('border-color','#ffffff');
+        $('#Lantanoid').hide();
+        $('#Lantanoid').parent().css('border-color','#ffffff');
+        $('#Actinoid').hide();
+        $('#Actinoid').parent().css('border-color','#ffffff');
+      }
     }else if(difficulty == "Advanced" || difficulty == "Maniac") {
       range = 118;
     }
@@ -282,7 +299,7 @@ $(document).ready(function(){
 
 //ゲームのSTARTボタン押下時処理
   $('.btn').on('click',function() {
-
+    $('.time').text(0);
     //経過秒数表示
     start = new Date();
     interval_id = setInterval(dispSec,1000);
