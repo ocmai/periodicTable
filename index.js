@@ -1130,7 +1130,6 @@ $(document).ready(function(){
 //元素クリック時処理
   $("[id^='no']").parent().on('click',function(){
     var element_name = $(this).children('.name').text();
-    console.log(element_name)
     if(element_name== elementsData[0].name){
       //背景色変更
       $(this).css('background-color','#a3d6cc');
