@@ -994,6 +994,7 @@ $(document).ready(function(){
   //モーダルで設定した難易度・問題数情報
     var difficulty
     var number
+
   //モーダル上のSTARTボタン押下
   $('.modal_close').click(function(){
     $('.modal').fadeOut();
@@ -1004,7 +1005,7 @@ $(document).ready(function(){
 
     //設定値
     var range = 0;
-    if(difficulty == "Beginner"){
+    if(difficulty == "初級"){
       range = 20;
       for(var i=21; i<=118; i++){
         $('#no'+i).hide();
@@ -1014,7 +1015,7 @@ $(document).ready(function(){
         $('#Actinoid').hide();
         $('#Actinoid').parent().css('border-color','#ffffff');
       }
-    }else if(difficulty == "Intermediate") {
+    }else if(difficulty == "中級") {
       range = 40;
       for(var i =41; i<=118; i++){
         $('#no'+i).hide();
@@ -1024,10 +1025,10 @@ $(document).ready(function(){
         $('#Actinoid').hide();
         $('#Actinoid').parent().css('border-color','#ffffff');
       }
-    }else if(difficulty == "Advanced"){
+    }else if(difficulty == "上級"){
       range = 118;
 
-    }else if(difficulty == "Maniac") {
+    }else if(difficulty == "超級") {
       range = 118;
       for(var i = 1; i<=118; i++){
         $('#no' + i).hide();
@@ -1088,13 +1089,19 @@ $(document).ready(function(){
   var id
   var scorePoint
   var elementsData
+  var btn_click_count
+  var maru_count = 0;
+  var batsu_count = 0;
 
 //ゲームのSTARTボタン押下時処理
   $('.btn').on('click',function() {
+    //時間表示枠に0を表示
     $('.time').text(0);
+
     //経過秒数表示
     start = new Date();
     interval_id = setInterval(dispSec,1000);
+
     //id初期化
     interval_array = [];
     interval_array.push(interval_id);
@@ -1111,12 +1118,23 @@ $(document).ready(function(){
       //出題終了
       console.log('終了');
       clearInterval(interval_array[0]);
-      //スコア表示
+      //クリア時モーダルの設定
+      $('.clear_modal_difficulty').text(difficulty);
+      $('.clear_modal_number').text(number +'問');
+      $('.clear_modal_max').text(Number(number * 10)+'pt');
+      $('.clear_modal_point').text(scorePoint +'pt');
+      $('.clear_modal_maru').text(maru_count +'問');
+      $('.clear_modal_batsu').text(batsu_count +'問');
+
+      //クリア時モーダルの表示
       $('.overlay').fadeIn();
       $('.clear_modal').fadeIn();
 
-
-
+      //クリア時モーダルの閉じるボタン
+      $('.close_btn').click(function(){
+        document.location.reload();
+      });
+      //$('.close_btn').click(document.location.reload());
     }else if (number_count <= number) {
       //出題処理
       number_count = number_count +1;
@@ -1125,20 +1143,31 @@ $(document).ready(function(){
     }
     //現在のスコア取得
     scorePoint = $('.score').text();
+
+    //正解クリックカウントを初期化
+    btn_click_count=0;
   });
 
 //元素クリック時処理
   $("[id^='no']").parent().on('click',function(){
-    var element_name = $(this).children('.name').text();
-    if(element_name== elementsData[0].name){
-      //背景色変更
-      $(this).css('background-color','#a3d6cc');
-      //元素名表示
-      $(this).children('.name').show();
-      //経過時間カウントを止める
-      clearInterval(interval_array[0]);
-      interval_id = 0
-      //得点を計算して表示
+    //解答済みの問題について処理しない
+    if(btn_click_count==0){
+
+      var element_name = $(this).children('.name').text();
+      //正解の場合の処理
+      if(element_name== elementsData[0].name){
+
+        //背景色変更
+        $(this).css('background-color','#a3d6cc');
+
+        //元素名表示
+        $(this).children('.name').show();
+
+        //経過時間カウントを止める
+        clearInterval(interval_array[0]);
+        interval_id = 0
+
+        //得点を計算して表示
         if($('.hint3').text() != ""){
           //hint3まで表示されてる場合:+3pt
           scorePoint = Number(scorePoint)+ 3;
@@ -1151,9 +1180,20 @@ $(document).ready(function(){
           //hint1まで表示されてる場合:+10pt
           scorePoint = Number(scorePoint) + 10;
           $('.score').text(scorePoint);
-        }
+          }
+      //一度正解したら押せないようにする
+      btn_click_count = 1;
+      maru_count = maru_count + 1;
+
+      //不正解時の処理
+      }else{
+        //間違ったところをクリックすると-1pt.
+        scorePoint = Number(scorePoint) - 1;
+        $('.score').text(scorePoint);
+        batsu_count = batsu_count + 1;
+      }
     }else{
-      //間違ったところをクリックすると-1pt.
+      alert('解答済みです。次の問題へ進んでください。')
     }
   }); //元素クリック時処理終了
 

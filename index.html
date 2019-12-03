@@ -21,7 +21,7 @@
           <p class="number_now">0</p>
           <p class="count">問目</p>
         </div>
-        <div class="btn"><p>START<p></div>
+        <div class="btn"><p>次へ<p></div>
         <!--ヒント1-->
         <div class="hint_box">
           <p class="hint1"></p>
@@ -201,10 +201,10 @@
         </div>
       <div class="center">
         <select name="difficulty" id="sources" class="custom-select sources" placeholder="難易度">
-          <option value="Beginner">初級</option>
-          <option value="Intermediate">中級</option>
-          <option value="Advanced">上級</option>
-          <option value="Maniac">超級</option>
+          <option value="初級">初級</option>
+          <option value="中級">中級</option>
+          <option value="上級">上級</option>
+          <option value="超級">超級</option>
         </select>
       </div>
       <div class="number">
@@ -220,7 +220,15 @@
     <!--終了時表示モーダル-->
     <div class="clear_modal">
       <p class="clear_modal_title">ゲーム結果</p>
-        <p class="clear_modal_text"></p>
+      <div class="clear_modal_text">
+        <div class="textline"><p class="clear_difficulty">難易度：</p><p class="clear_modal_difficulty"></p></div>
+        <div class="textline"><p class="clear_number">問題数：</p><p class="clear_modal_number"></p></div>
+        <div class="textline"><p class="clear_max">理論値：</p><p class="clear_modal_max"></p></div>
+        <div class="textline"><p class="clear_point">得点：</p><p class="clear_modal_point"></p></div>
+        <div class="textline"><p class="clear_maru">正解数：</p><p class="clear_modal_maru"></p></div>
+        <div class="textline"><p class="clear_batsu">不正解数：</p><p class="clear_modal_batsu"></p></div>
+        <img src="hakase_book_dokusyo.png" alt="はかせの画像" title="はかせ" class="hakase">
+      </div>
       <div class="close_btn">閉じる</div>
     </div>
     <div class="overlay"></div>
