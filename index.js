@@ -1067,9 +1067,11 @@ $(document).ready(function(){
     datet = parseInt((now.getTime() - start.getTime()) / 1000);
     sec = datet % 61;
     if(sec >= counter){
+      $('.time').text(sec);
       //ストップ処理
       clearInterval(interval_array[0]);
       interval_id = 0;
+      alert('時間切れです。次の問題へ進んでください。')
     }else{
       $('.time').text(sec);
       //ヒントの追加表示
