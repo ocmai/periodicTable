@@ -56,8 +56,19 @@
   background-color: #ffffcc;
   margin: 30px;
   font-family: sans-serif;
-  font-size: 12pt;
+  text-align: center;
 }
+.asobikata{
+  border-bottom: 2px dashed #404040;
+  font-size: 12pt;
+  margin: 5px 20px;
+}
+.text{
+  font-size: 11pt;
+  margin:5px 20px;
+}
+
+
 .modal_close{
 	display: inline-block;
 	width: 130px;
@@ -228,7 +239,7 @@
   width: 200px;
   height: 200px;
 }
-
+/*クリア時モーダルの閉じるボタン*/
 .close_btn{
   display: inline-block;
 	width: 130px;
